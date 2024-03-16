@@ -1,3 +1,121 @@
+1.	O que é o Correios Web Services?
+2.	Cadastrar usuário pessoa jurídica.
+3.	Gerar código de acesso da API.
+4.	Utilizando as API's.
+o	A. Código de acesso da API e o gerador de token
+o	B. Gerando o token
+o	C. Realizando os primeiros testes
+o	D. Outros códigos de retorno do servidor.
+5.	Preparando o ambiente no Postman.
+o	A. Criando uma coleção
+o	B. Criando a requisição
+o	C. Conhecendo a tela
+o	D. Realizando a primeira requisição pelo POSTMAN
+1 - O que é o Correios Web Services?
+Correios Web Services – CWS fornece uma plataforma de serviços web, permitindo acesso, por integração, aos dados que podem auxiliar o cliente dos Correios em funcionalidades que visa agregar mais valor ao seu produto ou serviço e com dados mais assertivos, a exemplo dos dados de endereçamento. O CWS é direcionado ao cliente dos Correios que deseja desenvolver soluções customizadas em Tecnologia da Informação – TI.
+O acesso as funcionalidades, se dará por API (Aplication Programming Interface ou Interface de programação de aplicações). O cliente com contrato poderá ter acesso a API consideradas abertas ou restritas mediante autorização.
+O Protocolo de comunicação utilizado é por meio do Hyper Text Transfer Protocol – HTTP, responsável pela transferência de dados. Como meio de comunicação utilizando REST ou SOAP e retornando como respostas dados JSON ou XML, oferecendo assim a extensibilidade e a interoperabilidade entre as diversas aplicações, podendo ser executadas nas mais variadas plataformas e frameworks.
+A exemplo do REST, será fornecida uma url base e os verbos HTTP vão indicar qual ação está sendo requisitada pelo cliente.
+O acesso ao CWS é feito pelo link: https://cws.correios.com.br. Apesar da existência do ambiente de homologação, para a realização de testes, o acesso as funcionalidades será realizada através de orientações, login e senha específicos para a funcionalidade.
+O acesso ao CWS é através do perfil criado no Meu Correios, link de acesso: https://meucorreios.correios.com.br.
+2 - Cadastrar usuário pessoa jurídica.
+Para realizar o cadastro no Meu Correios. Acessar o link: https://meucorreios.correios.com.br será direcionado a tela abaixo. Clicar na opção “Fazer cadastro” e seguir os passos para realizar o cadastro. Lembrando que o acesso as API's pode ser restrito a clientes de contrato.
+ 
+Voltar
+3 - Gerar código de acesso da API.
+Após realizar o cadastro no Meu Correios, deve acessar, o endereço dos Correios Web Services: https://cws.correios.com.br. Ao acessar o link a página abaixo será exibida:
+ 
+1.	Representado pelas três linhas horizontais (botão de hambúrguer), permite abrir o menu lateral no qual permite acessar as opções: Documentação, Gestão de acesso a API e Ajuda;
+2.	Menu de acesso ao perfil e Sair do ambiente;
+3.	Dashboard ou tela de acesso as API(s).
+Para gerar o código de acesso a(s) API(s), deve acessar o menu lateral (abrir pelo botão de hambúrguer) e clicar na opção (1) Gestão de acesso a APIs; (2) Informe a senha utilizada no portal Meu Correios (3) Clique no botão para gerar ou regerar o código de acesso.
+ 
+(4) Dado que o cliente já possua um código de acesso, o sistema exibirá uma mensagem de confirmação antes de emitir o novo (5) Clique em "Sim" para prosseguir.
+ 
+(6) O código de acesso gerado será exibido como na imagem abaixo. Copie e guarde para utilizar na geração do token
+ 
+Voltar
+4 - Utilizando as API's.
+A tela principal do CWS, é semelhante à figura abaixo:
+ 
+O CWS permite realizar os primeiros testes após a emissão do código de acesso a(s) API(s).
+A tela permite gerar a chave de acesso (token) (1); Para conhecer as API(s) que são acessíveis, ao clicar na barra de pesquisa (2), abre a lista de APIs; e (3) a documentação da API.
+ 
+A. O código de acesso a(s) API(s) e o gerador de token
+•	É necessário emitir o código de acesso para que seja possível gerar o token;
+•	O gerador de token, ou chave de acesso, no qual permite gerar uma chave criptografada com dados válidos que autoriza o acesso aos dados da API e com prazo de validade.
+Recursos que ainda estão em SOAP, utilizam somente as credenciais da API, o portal CWS não simula as requisições em SOAP, para isso, deve utilizar uma aplicação semelhante ao SOAPui. E para utilizar a tecnologia REST, deve utilizar as credenciais da API para gerar o token, e utilizar o token para realizar as requisições mais seguras.
+B. Gerando o token
+Clicar na opção “Credenciais”, como mostra a figura abaixo:
+ 
+Vai abrir a janela para inserir os dados necessários para incluir os dados de autenticação, que é o código de acesso da API (1) e dados do contrato (2) que é o código do cartão de postagem.
+Preenchido basta gerar o token (3), para obter a chave criptografada (4). Ao gerar a chave, basta fechar a tela, e a chave gerada poderá ser utilizada em outras funcionalidades no qual terá acesso.
+ 
+C. Realizando os primeiros testes
+A aba “Api Manager – Token (5)”, está liberada o acesso a todos os usuários, afinal esta API é a que irá permitir a criação da chave criptografada.
+O nome Token é a API com o objetivo de gerar a chave criptografada e (5) é o código da API.
+Na imagem a seguir, mostra que a tela tem esse padrão: o título (1) com o link da documentação (JSON), as requisições verbais (2) e o schemas (3) com a finalidade semelhante a um dicionário de dados.
+ 
+No item (2), ao clicar no verbo POST, abre uma tela no qual permitirá a realização de testes no portal do CWS, sem a necessidade de instalação de outros softwares.
+ 
+Ao clicar no botão “Try it out”, permite executar a requisição.
+ 
+Ao clicar em “Execute” (1), é realizada a requisição em Curl e Request URL (2) é a representação da requisição e a resposta do servidor (3) com o retorno Code 201 e o detalhe do Response body.
+Como o código de resposta foi 201, requisição realizada com sucesso, teremos um retorno da chave criptografada para uso em uma API. Além disso há também os dados referente ao Meu Correios do requisitante conforme preenchido na tela de credenciais.
+É no corpo da resposta que o desenvolvedor poderá aplicar a mesma chave para outras requisições porque sua vigência é de 24h. Além disso, verificar a quais sistemas o usuário com o perfil PJ, possui na lista de códigos de API e em qual ambiente está utilizando para fazer as requisições.
+Corpo da Resposta ou Response body:
+ 
+O intervalo de vigência desta chave é do dia 23/06/2021 às 22:06:22 até o dia seguinte 24/06/2021 às 22:06:06, sendo que após este horário deverá gerar uma nova chave de acesso.
+Caso o usuário saia dessa tela, será necessário informar novamente as credenciais de acesso para testar a API
+D. Outros códigos de retorno do servidor.
+Um exemplo, é simular o acesso sem digitar a senha do componente:
+ 
+Ao clicar em “Execute” (1), já houve o retorno de “Senha não foi informada” (2).
+Como houve o erro de senha não informada, podemos ver que na tela já aparece o código 401 – não autorizado.
+Caso receba um erro 50x – erro no servidor, será listado o erro conforme demonstrado na figura abaixo:
+ 
+Explorando o final da página da aba do Token, encontraremos o Grupo Schemas, onde poderá visualizar as propriedades:
+ 
+Voltar
+5 - Preparando o ambiente no Postman
+Para iniciar os testes, sem uma ferramenta no qual consiga salvar o que foi desenvolvido (requisições), poderá gerar retrabalho. Para isso, neste manual, utilizaremos a ferramenta Postman que permite realizar a execução dos testes e o mais importante, salvar o trabalho (requisições).
+O download da ferramenta é no site https://www.postman.com ou poderá ser utilizado pelo navegador Google Chrome, acrescentando a extensão do Postman. Caso, já tenha outra ferramenta no qual permita definir o verbo para URL, não há problemas.
+ 
+Esclarecemos que utilizaremos esta ferramenta, por facilitar a homologação das API(s), e não será uma aula sobre a ferramenta Postman.
+A. Criando uma coleção
+A coleção permite que agrupe as API(s) que serão utilizadas no decorrer do manual. Exemplo: Geração de Token, Geração de Pré-Postagem, Geração de rótulo, etc. Clique no “+” e aparecerá uma coleção “New Collection”.
+ 
+Clique no “New Collection” e do lado direto clique no lápis ícone ao lado direito do nome.
+Escreva o nome da coleção como “Geração de Token”.
+ 
+B. Criando a requisição
+Para criar uma requisição, após a criação de uma coleção, poderá clicar em “Add a request”.
+ 
+Ao lado direito abre uma aba no qual poderá renomear para “Gerar token para o cartão de postagem”
+ 
+C. Conhecendo a tela
+1.	Abas de navegação;
+2.	Nome da requisição e a qual coleção pertence;
+3.	Verbo e a url base;
+4.	Informações que podem ser adicionadas por parâmetros, dados de autorização, cabeçalho da requisição, corpo da requisição;
+5.	Botão Send, se pressionar a seta para baixo, poderá enviar e fazer o download do resultado;
+6.	Resposta da requisição.
+ 
+D. Realizando a primeira requisição pelo POSTMAN
+É necessário utilizar as informações que estão na funcionalidade Documentação, para preencher os campos desta requisição.
+Relembrando, nos passos anteriores vimos:
+•	Acesso aos componentes: Login e senha de acesso aos componentes;
+•	Endereço de requisição;
+•	Verbo utilizado na requisição;
+•	O corpo da requisição.
+No endereço de requisição e no verbo ficará assim:
+ 
+No login e senha, clique na aba (1) Authorization, selecione em Type (2) “Basic Auth” e (3) preencha os dados de login e o código de acesso:
+ 
+Próximo passo é enviar os dados do cartão de postagem, clique em (1) Body, (2) raw, (3) JSON e (4) informe o número do cartão de postagem.
+ 
+A pressionar o botão Send termos a resposta semelhante a apresentada abaixo:
+ 
 
 Documentação de integração
  
