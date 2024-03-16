@@ -1664,16 +1664,5 @@ possível acompanhá-la.
 990 Não foi encontrada uma manifestação que atenda aos critérios informados
 999 Olá, ocorreu um erro durante o processo de cadastro. Tente novamente em alguns
 minutos.
-17. Considerações Finais
-Este material foi desenvolvido para facilitar ao leitor que estava acostumado com o
-Web Services dos Correios, que havia um padrão SOAP XML e com a migração para REST
-poderá sentir falta de material explicativo que era fornecido para cada sistema. Com o
-Correios API, centralizamos as documentações e como a atualização é dinâmica
-recomenda-se que retorne com frequência.
-Para todas as APIs citadas neste material, são as que estão liberadas para uso.
-Desta forma, caso tenham dúvidas referente a API o procedimento é entrar em contato com
-o Assistente Comercial de sua região ou Contrato.
-Informações de atendimento poderão ser obtidas pelo nosso site:
-https://www.correios.com.br/falecomoscorreios/central-de-atendimento
 
  
